@@ -15,7 +15,7 @@ struct *dict dictionary_init(); 					//Initialize dictionary object and return p
 
 struct *dict dictionary_add(struct dict *first, char *key, char *value);//Add new key-value pair to dictionary, returns ptr
 
-struct *dict dictionary_value(struct dict *first, char *key); 		//Return value from given key
+char* dictionary_value(struct dict *first, char *key); 		//Return value from given key
 
 struct *dict dictionary_remove(struct dict *first, char *key); 		//Remove value and key from given key
 
