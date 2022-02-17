@@ -1,8 +1,9 @@
+//dictionary.c
 #include <stdio.h>
 #include <stdlib.h>
 
 char *dictionary_init() {
-
+    
 }
 
 char *dictionary_add(char *dictobj, char *key, char *value) {

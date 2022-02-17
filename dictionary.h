@@ -1,3 +1,5 @@
+//Dictionary.h header file
+
 #ifndef DICTIONARY_H_ 						//protect against double define
 #define DICTIONARY_H_
 
