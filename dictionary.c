@@ -5,7 +5,7 @@
 #include <string.h>
 
 //Initialize dictionary object
-struct *dict dictionary_init() { 
+struct dict* dictionary_init() { 
     //Initialize first dictionary entry
     struct dict *first = (struct dict*)malloc(sizeof(struct dict));
     if(first == NULL) {
@@ -14,15 +14,15 @@ struct *dict dictionary_init() {
         return NULL;
     }
     //Pass initial (empty) values to first object
-    first->key   = '';
-    first->value = '';
+    first->key   = "";
+    first->value = "";
     first->last  = NULL;
     first->next  = NULL;
 
     return first;
 }
 
-struct *dict dictionary_add(struct dict *first, char *key, char *value) {
+struct dict* dictionary_add(struct dict *first, char *key, char *value) {
     //Error Checking
     if(first && key && value) {
         //Initialize new dictionary entry
@@ -87,13 +87,13 @@ char* dictionary_value(struct dict *first, char *key) {
     }
 }
 
-struct *dict dictionary_remove(struct dict *first, char *key) {
+struct dict* dictionary_remove(struct dict *first, char *key) {
     if(first && key) {
         struct dict *t = first;
         int found = 0;
         //check for matches
         while(t->next != NULL) {
-            if(!strcmp(t->key, key) {
+            if(!strcmp(t->key, key)) {
                 found = 1;
                 break;
             }
@@ -107,10 +107,10 @@ struct *dict dictionary_remove(struct dict *first, char *key) {
         if(t->next != NULL) {
             t->next->last = t->last; //set proper address in next object
         }
-        if(t->last != NULL( {
+        if(t->last != NULL) {
             t->last->next = t->next; //set proper address in last object 
         }
-        free(t); //clear memory of object
+        //free(t); //clear memory of object
 
         return first;
     }
@@ -120,7 +120,7 @@ struct *dict dictionary_remove(struct dict *first, char *key) {
     }
 }
 
-struct *dict dictionary_destroy(struct dict *first) {
+struct dict* dictionary_destroy(struct dict *first) {
     if(first) {
         struct dict *t = first;
         //while dictionary objects exist, DESTROY
@@ -139,7 +139,7 @@ struct *dict dictionary_destroy(struct dict *first) {
 
 }
 
-void dictionary_print(struct dict *first,) {
+void dictionary_print(struct dict *first) {
     if(first) {
         struct dict *t = first;
         while(t != NULL) {

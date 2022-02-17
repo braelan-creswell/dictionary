@@ -1,5 +1,5 @@
 TARGET = main
-OBJF = main.o, dictionary.o
+SOURCE = main.c dictionary.c
 CFLAGS = -g -Wall
 LIBS = -lm
 CC = gcc
@@ -7,7 +7,7 @@ CC = gcc
 all: $(TARGET)
 
 $(TARGET): $(OBJF)
-	$(CC) -o $(TARGET) $(OBJF) $(LIBS)
+	$(CC) $(SOURCE) -o $(TARGET) $(OBJF) $(LIBS)
 
 clean:
 	rm -f $(OBJF)
