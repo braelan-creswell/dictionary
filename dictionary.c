@@ -88,13 +88,43 @@ char* dictionary_value(struct dict *first, char *key) {
 }
 
 struct *dict dictionary_remove(struct dict *first, char *key) {
-
+    if(first && key) {
+        
+    }
+    else {
+        fprintf(stderr, "dictionary_remove: insufficient arguments");
+        return NULL;
+    }
 }
 
 struct *dict dictionary_destroy(struct dict *first) {
+    if(first) {
+        struct dict *t = first;
+        //while dictionary objects exist, DESTROY
+        while(t != NULL) {
+            struct dict *nxt = t->next;
+            free(t);
+            t = nxt;
+        }
+        //Return null pointer
+        return t; 
+    }
+    else {
+        fprintf(stderr, "dictionary_destroy: insufficient arguments");
+        return NULL;
+    }
 
 }
 
 void dictionary_print(struct dict *first,) {
-
+    if(first) {
+        struct dict *t = first;
+        while(t != NULL) {
+           printf("Dictionary Object %p:  Key: %s, Value: %s, Next addr: %p, Last addr: %p\n", t, t->key, t->value, t->next, t->last);
+           t = t->next;
+        }
+    }
+    else {
+        fprintf(stderr, "dictionary_print: insufficient arguments");
+    }
 }
