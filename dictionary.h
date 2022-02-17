@@ -6,14 +6,14 @@
 struct dict {
     char *key;
     char *value;
-}
 
-struct dict *last;
-struct dict *next;
+    struct dict *last;                                                 //pointer to last and next dictionary object
+    struct dict *next;
+}
 
 struct *dict dictionary_init(); 					//Initialize dictionary object and return ptr to first key-value pair
 
-struct *dict dictionary_add(struct dict *first, char *key, char *value); 	//Add new key-value pair to dictionary, returns ptr
+struct *dict dictionary_add(struct dict *first, char *key, char *value);//Add new key-value pair to dictionary, returns ptr
 
 struct *dict dictionary_value(struct dict *first, char *key); 		//Return value from given key
 
