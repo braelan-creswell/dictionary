@@ -5,7 +5,7 @@
 #include <string.h>
 
 //Initialize dictionary object
-struct dict* dictionary_init() { 
+struct dict* dictionary_init() {
     //Initialize first dictionary entry
     struct dict *first = (struct dict*)malloc(sizeof(struct dict));
     if(first == NULL) {
@@ -42,7 +42,7 @@ struct dict* dictionary_add(struct dict *first, char *key, char *value) {
             if(!strcmp(t->key, key)) {
                 t->value = value;
                 add = 0;
-                break;   
+                break;
             }
             t = t->next;
         }
@@ -56,7 +56,7 @@ struct dict* dictionary_add(struct dict *first, char *key, char *value) {
             //free memory if nothing added.
             free(new);
         }
-        
+
         return first;
     }
     else {
@@ -97,6 +97,7 @@ struct dict* dictionary_remove(struct dict *first, char *key) {
                 found = 1;
                 break;
             }
+            t = t->next;
         }
         //no entry found
         if(found == 0) {
@@ -108,7 +109,7 @@ struct dict* dictionary_remove(struct dict *first, char *key) {
             t->next->last = t->last; //set proper address in next object
         }
         if(t->last != NULL) {
-            t->last->next = t->next; //set proper address in last object 
+            t->last->next = t->next; //set proper address in last object
         }
         free(t); //clear memory of object
 
@@ -130,7 +131,7 @@ struct dict* dictionary_destroy(struct dict *first) {
             t = nxt;
         }
         //Return null pointer
-        return t; 
+        return t;
     }
     else {
         fprintf(stderr, "dictionary_destroy: insufficient arguments");
