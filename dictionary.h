@@ -1,18 +1,26 @@
 //Dictionary.h header file
 
-#ifndef DICTIONARY_H_ 						//protect against double define
+#ifndef DICTIONARY_H_ 							//protect against double define
 #define DICTIONARY_H_
 
-char* dictionary_init(); 					//Initialize dictionary object and return ptr to first key-value pair
+struct dict {
+    char *key;
+    char *value;
+}
 
-char* dictionary_add(char *dictobj, char *key, char *value); 	//Add new key-value pair to dictionary, returns ptr
+struct dict *last;
+struct dict *next;
 
-char* dictionary_value(char *dictobj, char *key); 		//Return value from given key
+struct *dict dictionary_init(); 					//Initialize dictionary object and return ptr to first key-value pair
 
-char* dictionary_remove(char *dictobj, char *key); 		//Remove value and key from given key
+struct *dict dictionary_add(struct dict *first, char *key, char *value); 	//Add new key-value pair to dictionary, returns ptr
 
-char* dictionary_destroy(char *dictobj);			//Deallocate memory held by dictionary object
+struct *dict dictionary_value(struct dict *first, char *key); 		//Return value from given key
 
-void dictionary_print(char *dictobj); 				//print dictionary with linked list pointers
+struct *dict dictionary_remove(struct dict *first, char *key); 		//Remove value and key from given key
+
+struct *dict dictionary_destroy(struct dict *first);			//Deallocate memory held by dictionary object
+
+void dictionary_print(struct dict *first); 				//print dictionary with linked list pointers
 
 #endif
