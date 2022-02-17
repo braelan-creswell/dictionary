@@ -110,7 +110,7 @@ struct dict* dictionary_remove(struct dict *first, char *key) {
         if(t->last != NULL) {
             t->last->next = t->next; //set proper address in last object 
         }
-        //free(t); //clear memory of object
+        free(t); //clear memory of object
 
         return first;
     }
