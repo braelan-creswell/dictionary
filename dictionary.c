@@ -89,7 +89,30 @@ char* dictionary_value(struct dict *first, char *key) {
 
 struct *dict dictionary_remove(struct dict *first, char *key) {
     if(first && key) {
-        
+        struct dict *t = first;
+        int found = 0;
+        //check for matches
+        while(t->next != NULL) {
+            if(!strcmp(t->key, key) {
+                found = 1;
+                break;
+            }
+        }
+        //no entry found
+        if(found == 0) {
+            fprintf(stderr, "dictionary_remove: No entry found");
+            return NULL;
+        }
+        //remove entry
+        if(t->next != NULL) {
+            t->next->last = t->last; //set proper address in next object
+        }
+        if(t->last != NULL( {
+            t->last->next = t->next; //set proper address in last object 
+        }
+        free(t); //clear memory of object
+
+        return first;
     }
     else {
         fprintf(stderr, "dictionary_remove: insufficient arguments");
