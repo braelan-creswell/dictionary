@@ -1,3 +1,3 @@
-# dictionary
+# Dictionary
 
 Dictionary Data Structure in C
